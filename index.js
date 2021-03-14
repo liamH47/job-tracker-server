@@ -15,8 +15,8 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use('/jobs', jobRoutes);
 app.get('/', (req, res) => {
-    res.send('Hello to Memories API');
-})
+    res.send('plswork');
+});
 const PORT = process.env.PORT || 5000;
 
 mongoose.set('useFindAndModify', false);
