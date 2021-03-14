@@ -17,7 +17,7 @@ app.use('/jobs', jobRoutes);
 app.get('/', (req, res) => {
     res.send('plswork');
 });
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000
 
 mongoose.set('useFindAndModify', false);
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
