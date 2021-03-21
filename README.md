@@ -1,0 +1,1 @@
+This is the server side of my job tracker. I am almost at the point where I can focus on adding the drag and drop behavior to the frontend, but have a couple more bugs to work through first. This README will be updated with more information as soon as I have the app live.
