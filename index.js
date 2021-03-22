@@ -5,6 +5,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 import jobRoutes from './routes/jobs.js'
+import userRoutes from './routes/users.js'
 
 const app = express();
 dotenv.config()
@@ -14,6 +15,7 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use('/jobs', jobRoutes);
+app.use('/user', userRoutes);
 app.get('/', (req, res) => {
     res.send('plswork');
 });
