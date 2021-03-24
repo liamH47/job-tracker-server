@@ -13,7 +13,7 @@ export const getJobs = async (req, res) => {
 
 export const createJob = async (req, res) => {
     const job = req.body;
-    const newJob = new Job({ ...job, creator: req.userId, createdAt: new Date().toISOString() })
+    const newJob = new Job({ ...job, creator: req.userId })
     try {
         await newJob.save();
         res.status(201).json(newJob);
