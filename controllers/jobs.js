@@ -30,9 +30,10 @@ export const updateJob = async (req, res) => {
     res.json(updatedJob);
 }
 
-export const updateAll = async (req, res) => {
+export const updateIndices = async (req, res) => {
+    console.log('request body:', req.body[0].creator);
     const jobs = req.body;
-    await Job.deleteMany({});
+    await Job.deleteMany({ "creator" : `${req.body[0].creator}` });
     await Job.insertMany(jobs);
     getJobs(req, res);
 
@@ -44,3 +45,9 @@ export const deleteJob = async (req, res) => {
     await Job.findByIdAndRemove(id);
     res.json({ message: 'Job successfully deleted' });
 }
+
+/**
+ * next, instead of logging req.body, find the creator value within req.body
+ * after that has been determined, change the deletemany to just delete jobs where the creator that matches. 
+ * from there, insertmany(jobs) should still work.
+ */
