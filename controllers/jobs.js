@@ -30,6 +30,14 @@ export const updateJob = async (req, res) => {
     res.json(updatedJob);
 }
 
+export const updateAll = async (req, res) => {
+    const jobs = req.body;
+    await Job.deleteMany({});
+    await Job.insertMany(jobs);
+    getJobs(req, res);
+
+}
+
 export const deleteJob = async (req, res) => {
     const { id } = req.params;
     if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No job with that ID');
