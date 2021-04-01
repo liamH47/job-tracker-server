@@ -13,6 +13,7 @@ export const getJobs = async (req, res) => {
 
 export const createJob = async (req, res) => {
     const job = req.body;
+    console.log('in create job backend:', req.userId)
     const newJob = new Job({ ...job, creator: req.userId })
     try {
         await newJob.save();
