@@ -21,7 +21,8 @@ const jobSchema = mongoose.Schema({
     followed_up: {
         type: Boolean,
         default: false
-    }
+    },
+    index: Number
 });
 
 const Job = mongoose.model('Job', jobSchema);
